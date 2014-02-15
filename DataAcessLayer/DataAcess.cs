@@ -34,9 +34,6 @@ namespace DataAcessLayer
             }
             return command;
         }
-
-        //Returns the sql connection object to the caller function.
-        //<return> Connection object </return>
         public static SqlConnection GetSqlConnection()
         {
             connection = Connection();
