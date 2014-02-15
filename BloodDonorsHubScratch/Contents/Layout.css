@@ -1,81 +1,75 @@
 ﻿body {
     background-color: black;
-    margin-left: 100px;
-    margin-right: 100px;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    width: 90%;
+    margin-left: 5%;
+    margin-top: 2%;
 }
 
-h1 {
-    background-image: url(../Images/logo.png);
+#Boundary {
+    background-color: black;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+#h1 {
+    background: url(../Images/logo.png);
     background-repeat: no-repeat;
-    background-position: left;
+    background-position: center;
+    background-position-x: left;
 }
 
 #ImageSlider {
-    margin-left: 100px;
-    margin-right: 400px;
-    margin-top: 50px;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 2%;
+    height: 40%;
+    padding-top: 10%;
     background: url('../Images/blood.drop.jpg') no-repeat;
-    background-size: 1200px;
-    height: 400px;
-    width: 1200px;
     position: relative;
     border: thin;
     border-color: red;
 }
 
 #NavigationTab {
-    margin-left: 200px;
-    margin-right: 100px;
-    bottom: 0;
+    padding-left: 5%;
+    padding-right: 5%;
     background-color: black;
     opacity: 0.6;
-    height: 60px;
+    height: 13%;
+    bottom: 0;
     position: absolute;
+    right: 15%;
+    left: 15%;
 }
 
 #NavigationList {
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-bottom: 5px;
-    padding-top: 5px;
-}
-
-#NavigationTab ul {
-    height: 28px;
-    list-style-type: none;
-    background-color: transparent black;
-    border: solid;
-    border-color: black;
-    margin-right: 200px;
-    margin-left: 200px;
+    padding-left: 1%;
+    padding-right: 1%;
+    padding-bottom: 1%;
+    padding-top: 1%;
+    text-align: center;
 }
 
 
-    #NavigationTab ul li {
-        display: inline;
-        padding-left: 20px;
-        padding-right: 20px;
-        border-right: 1px solid white;
-        font-family: 'Trebuchet MS';
+#NavigationTab ul li {
+    display: inline;
+    padding-left: 4%;
+    padding-right: 4%;
+    border-right: 1px solid white;
+    font-family: 'Trebuchet MS';
+}
+
+    #NavigationTab ul li a {
+        color: white;
+        font-size: large;
     }
 
-        #NavigationTab ul li a {
-            color: white;
-            font-size: large;
+        #NavigationTab ul li a:hover {
+            color: green;
         }
 
-            #NavigationTab ul li a:hover {
-                opacity: 0.9;
-                color: blue;
-            }
-
 #Content_Area {
-    padding-left: 100px;
-    padding-right: 100px;
-    padding-bottom: 10px;
-    padding-top: 5px;
+    width: 90%;
 }
 
 h2 {
@@ -95,12 +89,14 @@ p {
     text-align: center;
     color: white;
     font-size: small;
+    position: relative;
 }
 
 .Vertical {
     border-left: 1px solid green;
     margin-top: 30px;
     margin-right: 20px;
+    margin-left: 20px;
 }
 
 .submit /*submit button class*/ {
@@ -123,7 +119,7 @@ p {
     text-align: left;
     width: 100px;
     display: inline-block;
-    color:white;
+    color: white;
     font-family: 'Trebuchet MS';
 }
 
