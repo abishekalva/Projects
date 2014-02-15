@@ -43,7 +43,7 @@ namespace BloodDonorsHubScratch.Controllers
         [ActionName("UserLogin")]
         public ActionResult UserLogin(RequestModel model)
         {
-           Users.PostRequest(model.EmployeeID, model.BloodGroupRequested, model.Location);
+           UserActions.PostRequest(model.EmployeeID, model.BloodGroupRequested, model.City);
            
               return View();
         }
