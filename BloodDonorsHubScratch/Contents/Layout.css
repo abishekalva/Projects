@@ -1,0 +1,132 @@
+﻿body {
+    background-color: black;
+    margin-left: 100px;
+    margin-right: 100px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+h1 {
+    background-image: url(../Images/logo.png);
+    background-repeat: no-repeat;
+    background-position: left;
+}
+
+#ImageSlider {
+    margin-left: 100px;
+    margin-right: 400px;
+    margin-top: 50px;
+    background: url('../Images/blood.drop.jpg') no-repeat;
+    background-size: 1200px;
+    height: 400px;
+    width: 1200px;
+    position: relative;
+    border: thin;
+    border-color: red;
+}
+
+#NavigationTab {
+    margin-left: 200px;
+    margin-right: 100px;
+    bottom: 0;
+    background-color: black;
+    opacity: 0.6;
+    height: 60px;
+    position: absolute;
+}
+
+#NavigationList {
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+}
+
+#NavigationTab ul {
+    height: 28px;
+    list-style-type: none;
+    background-color: transparent black;
+    border: solid;
+    border-color: black;
+    margin-right: 200px;
+    margin-left: 200px;
+}
+
+
+    #NavigationTab ul li {
+        display: inline;
+        padding-left: 20px;
+        padding-right: 20px;
+        border-right: 1px solid white;
+        font-family: 'Trebuchet MS';
+    }
+
+        #NavigationTab ul li a {
+            color: white;
+            font-size: large;
+        }
+
+            #NavigationTab ul li a:hover {
+                opacity: 0.9;
+                color: blue;
+            }
+
+#Content_Area {
+    padding-left: 100px;
+    padding-right: 100px;
+    padding-bottom: 10px;
+    padding-top: 5px;
+}
+
+h2 {
+    font-family: 'Trebuchet MS';
+    font-weight: bold;
+    color: green;
+}
+
+p {
+    font-family: 'Trebuchet MS';
+    font-weight: 400;
+    color: white;
+}
+
+#footer {
+    height: 30px;
+    text-align: center;
+    color: white;
+    font-size: small;
+}
+
+.Vertical {
+    border-left: 1px solid green;
+    margin-top: 30px;
+    margin-right: 20px;
+}
+
+.submit /*submit button class*/ {
+    font-size: large;
+    font-weight: bold;
+    font-family: 'Trebuchet MS';
+    margin-left: 100px;
+    background-color: green;
+    color: black;
+    border-color: green;
+}
+
+    .submit:hover {
+        color: blue;
+    }
+
+
+.label /*label class*/ {
+    margin-left: 20px;
+    text-align: left;
+    width: 100px;
+    display: inline-block;
+    color:white;
+    font-family: 'Trebuchet MS';
+}
+
+.textbox /*textbox class*/ {
+    width: 150px;
+}
