@@ -1,0 +1,45 @@
+﻿@{
+    ViewBag.Title = "UserLogin";
+}
+
+@model BloodDonorsHubScratch.Models.RequestModel
+@using (Html.BeginForm("UserLogin", "Account", FormMethod.Post))
+{
+<header>
+    <link rel="stylesheet" type="text/css" href="~/Contents/HomeStyle.css" />
+</header>
+<h2>User Area</h2>
+<body>
+    <form id="form1">
+
+        @if (TempData["Message"] != null)
+        {
+            <div>
+                <p typeof="text">Hello <span style="color:blue; font-weight: bold;"> @TempData["Message"]</span>!!! Welcome to the the Blood Donors Hub</p>
+            </div>
+        }
+
+        <div>
+            <br /><br />
+            <label class="label">EmployeeID</label>
+            <input type="text" name="EmployeeID" class="textbox">
+            <br><br>
+
+            <label class="label">Blood Group</label>
+            <input type="text" name="BloodGroupRequested" class="textbox">
+            <br><br>
+
+            <label class="label">Location</label>
+            <input type="text" name="Location" class="textbox">
+            <br><br>
+
+            <input type="submit" value="Post the Request" class="submit" />
+            <br><br>
+        </div>
+
+        <div id="footer">
+            <p>&#169 Copyright 2014. All Rights Reserved.</p>
+        </div>
+    </form>
+</body>
+}

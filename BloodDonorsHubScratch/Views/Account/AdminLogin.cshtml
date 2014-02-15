@@ -1,0 +1,25 @@
+﻿@{
+    ViewBag.Title = "AdminLogin";
+}
+@model BloodDonorsHubScratch.Models.RequestModel
+@using (Html.BeginForm("AdminLogin", "Account", FormMethod.Post))
+{
+    <header>
+        <link rel="stylesheet" type="text/css" href="~/Contents/HomeStyle.css" />
+    </header>
+    <h2>Admin Area</h2>
+    <body>
+        <form id="form1">
+            @if (TempData["Message"] != null)
+            {
+                <div>
+                    <p typeof="text">Hello <span style="color:red; font-weight: bold;"> @TempData["Message"]</span>!!! Welcome to the the Blood Donors Hub</p>
+                </div>
+            }
+
+            <div id="footer">
+                <p>&#169 Copyright 2014. All Rights Reserved.</p>
+            </div>
+        </form>
+    </body>
+}

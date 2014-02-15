@@ -1,0 +1,58 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+}
+@model BloodDonorsHubScratch.Models.LoginUserModel
+@using (Html.BeginForm("Login", "Login", FormMethod.Post))
+{
+<header >
+    <link rel="stylesheet" type="text/css" href="~/Contents/HomeStyle.css" />
+</header>
+
+<h1 id="header">BLOOD DONORS HUB</h1>
+<h2>LOGIN</h2>
+<body> 
+    <form id="form1">        
+          
+        
+                <div id="navcontainer">
+                    <ul id="#nav li">
+
+                        <li><a href="/">Home</a></li>
+
+                    </ul>
+                </div>      
+                
+                <div id="content_area">
+                   
+                    @*<br /><br />
+                    <label class="label">Email ID:</label>
+                    <input type="email" name="Email" class="textbox" /><br><br>
+
+                   <label class="label">Password:</label>
+                    <input type="password" class="textbox" name="Password" /><br><br>*@
+
+                  <br/> <br/>
+                    <label class="label">Email ID:</label>
+                    @Html.TextBoxFor(m => m.Email)
+                    <br><br>
+                    <label class="label">Password:</label>
+                    @Html.PasswordFor(m => m.Password)
+                    <br><br>
+                   <input type="submit" value="Login" class="submit" />
+                 
+                    @if (ViewData["Error"] != null)
+                    {
+                        <div class="Error">
+                            <p><strong>Error:</strong> @ViewData["Error"].ToString()</p>
+                        </div>
+                    }
+                    
+                </div>
+
+                <div id ="footer">
+                    <p>&#169 Copyright 2014. All Rights Reserved.</p>
+                </div>
+    </form>
+</body>
+}

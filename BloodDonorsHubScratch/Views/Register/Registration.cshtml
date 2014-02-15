@@ -1,0 +1,90 @@
+﻿@{
+    ViewBag.Title = "Registration";
+}
+@model BloodDonorsHubScratch.Models.UserModel
+@using (Html.BeginForm("Registration", "Register", FormMethod.Post))
+{
+    <header>
+        <link rel="stylesheet" type="text/css" href="~/Contents/HomeStyle.css" />
+    </header>
+
+    <h1 id="header">BLOOD DONORS HUB</h1>
+    <h2>Registration</h2>
+
+    <body>
+        <form id="form1">
+
+            <div id="navcontainer">
+                <ul id="#nav li">
+                    <li><a href="/">Home</a></li>
+                </ul>
+            </div>
+
+            <div id="content_area">
+
+                @*@Html.LabelFor(m => m.EmployeeName)
+                @Html.TextBoxFor(m =>m.EmployeeName)
+                <br /><br />*@
+
+                <label class="label">Employee Name:</label>
+                <input type="text" name="EmployeeName" class="textbox"><br>
+                <br>
+
+                @*@Html.LabelFor(m => m.EmployeeId,"EmployeeID")
+                @Html.TextBoxFor(m => m.EmployeeId)*@
+
+                <label class="label">Emoloyee ID:</label>
+                <input type="text" name="EmployeeId" class="textbox">
+                <br><br>
+
+               
+                @*@Html.LabelFor(m => m.Email,"EmailID")
+                @Html.TextBoxFor(m => m.Email, new { type = "email" })*@
+
+                <label class="label">Email ID:</label>
+                <input type="email" name="Email" class="textbox" />
+                <br><br>
+
+                @*@Html.LabelFor(m => m.Password, "Password")
+                @Html.TextBoxFor(m => m.Email, new { type = "password" })*@
+       
+                <label class="label">Password:</label>
+                <input type="password" name="Password" class="textbox" />
+                <br><br>
+
+                <label class="label">Blood Group:</label>
+                <input type="text" class="textbox" name="BloodGroup" /><br>
+                <br>
+
+                <label class="label">City:</label>
+                <input type="text" class="textbox" name="City" /><br>
+                <br>
+
+                <label class="label">Mobile No:</label>
+                <input type="tel" name="PhoneNumber" class="textbox" /><br>
+                <br>
+
+                <input type="submit" value="Register Me" class="submit" />
+
+                @if (ViewData["Error"] != null)
+                {
+                    <div class="Error">
+                        <p><strong>Error:</strong> @ViewData["Error"].ToString()</p>
+                    </div>
+                }
+                @if (ViewData["Success"] != null)
+                {
+                    <div class="Success">
+                        <p><strong>Success:</strong> @ViewData["Success"].ToString()</p>
+                        <a href="/Login/Login">Go to login page </a>
+                    </div>
+                }
+
+            </div>
+
+            <div id="footer">
+                <p>&#169 Copyright 2014. All Rights Reserved.</p>
+            </div>
+        </form>
+    </body>
+}
