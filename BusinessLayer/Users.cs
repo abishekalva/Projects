@@ -35,7 +35,7 @@ namespace BusinessLayer
                     string commandText = "Insert into Users values('" + users.EmployeeId + "','" + users.EmployeeName + "','" + users.Password + "','" + users.City + "','" + users.BloodGroup + "','" + users.Email + "','" + users.PhoneNumber + "');";
                     isSucessful = DataAcessLayer.DataAcess.ExecuteNonQuery(commandText);
                     string emailBody = CreateEmailBody(users.EmployeeName, users.Password, toEmailId);
-                    SendEmail(toEmailId, emailBody);
+                    SendEmail(toEmailId,emailBody);
                 }
             }
             catch (SqlException)
