@@ -1,14 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{1E42A143-17DF-41F9-9659-A0DBEDF8D211}</ProjectGuid>
+    <ProjectGuid>{133DAA9E-0353-4E66-A7BC-1B4FF528DA04}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>BusinessLayer</RootNamespace>
-    <AssemblyName>BusinessLayer</AssemblyName>
+    <RootNamespace>DataAccessModels</RootNamespace>
+    <AssemblyName>DataAccessModels</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -31,7 +31,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
-    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -40,18 +39,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="UsersActions.cs" />
+    <Compile Include="Users.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\DataAccessModels\DataAccessModels.csproj">
-      <Project>{133daa9e-0353-4e66-a7bc-1b4ff528da04}</Project>
-      <Name>DataAccessModels</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\DataAcessLayer\DataAcessLayer.csproj">
-      <Project>{34050f06-3c19-4c93-babb-27a14beb43e9}</Project>
-      <Name>DataAcessLayer</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -177,6 +177,12 @@
   <ItemGroup>
     <Content Include="Views\Account\UserLogin.cshtml" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DataAccessModels\DataAccessModels.csproj">
+      <Project>{133daa9e-0353-4e66-a7bc-1b4ff528da04}</Project>
+      <Name>DataAccessModels</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

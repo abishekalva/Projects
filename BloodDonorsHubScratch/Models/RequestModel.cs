@@ -9,7 +9,7 @@ namespace BloodDonorsHubScratch.Models
     {
         public string EmployeeID { get; set; }
         public string BloodGroupRequested { get; set; }
-        public string Location{ get; set; }
+        public string City{ get; set; }
       
     }
 }

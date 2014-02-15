@@ -1,8 +1,9 @@
 ﻿body {
     background-color: black;
-    width: 90%;
-    margin-left: 5%;
-    margin-top: 2%;
+    margin-left: 100px;
+    margin-right: 100px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 #Boundary {
@@ -20,11 +21,9 @@
 
 
 #ImageSlider {
-    margin-left: 5%;
-    margin-right: 5%;
-    margin-top: 2%;
-    height: 40%;
-    padding-top: 10%;
+    margin-left: 100px;
+    margin-right: 400px;
+    margin-top: 50px;
     background: url('../Images/blood.drop.jpg') no-repeat;
     position: relative;
     border: thin;
@@ -52,25 +51,28 @@
 }
 
 
-#NavigationTab ul li {
-    display: inline;
+    #NavigationTab ul li {
+        display: inline;
     padding-left: 4%;
     padding-right: 4%;
-    border-right: 1px solid white;
-    font-family: 'Trebuchet MS';
-}
-
-    #NavigationTab ul li a {
-        color: white;
-        font-size: large;
+        border-right: 1px solid white;
+        font-family: 'Trebuchet MS';
     }
 
-        #NavigationTab ul li a:hover {
-            color: green;
+        #NavigationTab ul li a {
+            color: white;
+            font-size: large;
         }
 
+            #NavigationTab ul li a:hover {
+            color: green;
+            }
+
 #Content_Area {
-    width: 90%;
+    padding-left: 100px;
+    padding-right: 100px;
+    padding-bottom: 10px;
+    padding-top: 5px;
 }
 
 h2 {

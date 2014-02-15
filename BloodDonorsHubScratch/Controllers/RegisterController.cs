@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using BusinessLayer;
+using DataAccessModels;
 
 namespace BloodDonorsHubScratch.Controllers
 {
@@ -29,7 +30,7 @@ namespace BloodDonorsHubScratch.Controllers
         public ActionResult Registration(Users users)
         {
 
-            bool isSuccessful = Users.Register(users);
+            bool isSuccessful = UserActions.Register(users);
             if (!isSuccessful)
             {
                 ViewData["Error"] = "Registration unsuccessful. This record already exists in our database";

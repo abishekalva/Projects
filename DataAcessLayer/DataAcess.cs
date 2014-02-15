@@ -1,9 +1,13 @@
-﻿using System;
+﻿using DataAccessModels;
+using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+
 
 namespace DataAcessLayer
 {
@@ -72,6 +76,24 @@ namespace DataAcessLayer
             }
         }
 
+        public static DataTable ExecuteQuery(string commandText)
+        {
+            
+
+                SqlDataAdapter adapter = new SqlDataAdapter(commandText, GetSqlConnection());
+                DataTable table = new DataTable();
+                adapter.Fill(table);
+                return table;
+
+
+
+
+           
+
+        }
+
+
+
         //This method checks if the Email already exists in the DB.
         //<return> Returns false if email exists else true </return>
         public static bool CheckIfEmailExists(string emailId)
@@ -121,7 +143,7 @@ namespace DataAcessLayer
 
         //Method to get all the email ids from user table
         //<return> List of emails </return>
-        public static List<string> GetDataRows(string commandText)
+        public static List<string> GetEmailIdAsStrings(string commandText)
         {
             List<string> emailIds = new List<string>();
             using (connection = GetSqlConnection())
@@ -139,7 +161,44 @@ namespace DataAcessLayer
             }
         }
 
+        //Method to get the User from UserTable based on Employee Id
+        //<return>User </return>
+        //public static Users Get_the_Employee(string commandText)
+        //{
+
+        //    using (connection = GetSqlConnection())
+        //    {
+        //        command = Command();
+        //        connection.Open();
+        //        command.Connection = connection;
+        //        command.CommandText = commandText;
+        //        Users user = new Users();
+        //        using (DataRow row = command.ExecuteReader())
+        //        {
+        //            while (reader.Read())
+        //            {
+        //                user.EmployeeName = reader["EmployeeName"].ToString();
+        //                user.EmployeeId = reader["EmployeeID"].ToString();
+        //                user.Email = reader["Email"].ToString();
+        //                user.BloodGroup = reader["BloodGroup"].ToString();
+        //                user.Password = reader["Password"].ToString();
+        //                user.City = reader["City"].ToString();
+        //                user.PhoneNumber = reader["PhoneNumber"].ToString();
 
 
+
+
+                        
+
+        //            }
+
+        //        }
+
+
+            //    return user;
+            //}
+
+
+       // }
     }
 }
