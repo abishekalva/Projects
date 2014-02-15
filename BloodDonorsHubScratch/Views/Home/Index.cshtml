@@ -2,76 +2,82 @@
     ViewBag.Title = "Test";
 }
 
+@model BloodDonorsHubScratch.Models.LoginUserModel
+@using (Html.BeginForm("Index", "Home", FormMethod.Post))
+{
 
-<link rel="stylesheet" type="text/css" href="~/Contents/Layout.css" />
-<h1></h1>
+    <link rel="stylesheet" type="text/css" href="~/Contents/Layout.css" />
+    <h1></h1>
 
 
-<body>
+    <body>
 
-    <form id="form1" runat="server">
+        <form id="form1" runat="server">
 
-        <div id="ImageSlider">
-            <div id="NavigationTab" style="margin-top: 10px">
-                <ul id="NavigationList">
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/">About </a></li>
-                    <li><a href="/Register/Registration">Register</a></li>
-                    <li><a href="/Login/Login">Login</a></li>
-                </ul>
+            <div id="ImageSlider">
+                <div id="NavigationTab" style="margin-top: 10px">
+                    <ul id="NavigationList">
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/">About </a></li>
+                        <li><a href="/Register/Registration">Register</a></li>
+                        <li><a href="/Login/Login">Login</a></li>
+                    </ul>
+                </div>
             </div>
-        </div>
 
 
-        <div id="Content_Area" style="height: 400px; width: 800px; float: left">
-            <h2>
-                Donate Blood......<br />
-                ...... Save Life !!!
-            </h2>
-            <p>
-                Blood donation gift may be the procedure for giving your own blood. The actual blood which is donated within blood camps is actually stored individually within the blood financial institution according to the actual blood team. Whenever a individual is within a vital require associated with blood, the actual blood banking institutions within private hospitals or even some other companies create the actual donated blood accessible to all of them.
-            </p>
+            <div id="Content_Area" style="height: 400px; width: 800px; float: left">
+                <h2>Donate Blood......<br />
+                    ...... Save Life !!!
+                </h2>
+                <p>
+                    Blood donation gift may be the procedure for giving your own blood. The actual blood which is donated within blood camps is actually stored individually within the blood financial institution according to the actual blood team. Whenever a individual is within a vital require associated with blood, the actual blood banking institutions within private hospitals or even some other companies create the actual donated blood accessible to all of them.
+                </p>
 
-            <h2>
-                Are you willing to donate ??
+                <h2>Are you willing to donate ??
                 <br />
-            </h2>
-            <p>Just login and post the request. Donars will contact you immediately.</p>
-
-        </div>
-
-        <div style="float: left; height: 300px; border-right: 1px solid green; margin-top: 20px; margin-right: 20px;">
-        </div>
-
-        <div style="float: left; height: 400px; width: 300px;">
-
-            <h2>Login</h2>
-
-            <div id="Login">
-
-
-
-                <label class="label">Email ID:</label>
-                <input type="email" id="tb_email" class="textbox" /><br>
-                <br>
-
-                <label class="label">Password:</label>
-                <input type="password" class="textbox" id="tb_pw" /><br>
-                <br>
-
-                <input type="submit" value="Login" class="submit" />
+                </h2>
+                <p>Just login and post the request. Donars will contact you immediately.</p>
 
             </div>
 
-            <p>Currently this site is specifically designed for APTEAN employees</p>
+            <div style="float: left; height: 300px; border-right: 1px solid green; margin-top: 20px; margin-right: 20px;">
+            </div>
 
-        </div>
+            <div style="float: left; height: 400px; width: 300px;">
+
+                <h2>Login</h2>
+
+                <div id="Login">
+
+                    <label class="label">Email ID:</label>
+                    @Html.TextBoxFor(m => m.Email)<br>
+                    <br>
+
+                    <label class="label">Password:</label>
+                    @Html.PasswordFor(m => m.Password)<br />
+                    <br>
+
+                    <input type="submit" value="Login" class="submit" />
+                    @if (ViewData["Error"] != null)
+                    {
+                        <div class="Error" style="background-color: red">
+                            <p><strong>Error:</strong> @ViewData["Error"].ToString()</p>
+                        </div>
+                    }
+
+                </div>
+
+                <p>Currently this site is specifically designed for APTEAN employees</p>
+
+            </div>
 
 
-        <div id="footer" style="clear: both;">
-            <p>&#169 Copyright 2014. All Rights Reserved.</p>
-        </div>
+            <div id="footer" style="clear: both;">
+                <p>&#169 Copyright 2014. All Rights Reserved.</p>
+            </div>
 
 
-    </form>
-</body>
+        </form>
+    </body>
+}
