@@ -5,21 +5,69 @@
 @using (Html.BeginForm("AdminLogin", "Account", FormMethod.Post))
 {
     <header>
-        <link rel="stylesheet" type="text/css" href="~/Contents/HomeStyle.css" />
+
+        <link rel="stylesheet" type="text/css" href="~/Contents/Layout.css" />
+        <link href="~/Contents/style.css" rel="stylesheet" />
+        <script src="~/Contents/jquery-1.9.0.min.js"></script>
+        <script src="~/Contents/jquery.index.js"></script>
+
+
+        @* script added for vertical menu bar (JQuery) *@
+        <script>
+            $(document).ready(function () {
+
+                //when hover over the menu selected item
+                $('#Testmenu li').hover(function () {
+
+                    // animate it
+                    // by changing the left padding from its initial value to 20px
+                    // set animation duration to 300 milliseconds
+
+
+                    $(this).animate({ paddingLeft: '20px' }, 300);
+
+
+                }, function () {
+
+                    // on mouseout, put the original value back in
+
+                    $(this).animate({ paddingLeft: '0px' }, 300);
+
+
+                });
+
+            });
+        </script>
+
     </header>
+    
     <h2>Admin Area</h2>
     <body>
         <form id="form1">
             @if (TempData["Message"] != null)
             {
                 <div>
-                    <p typeof="text">Hello <span style="color:red; font-weight: bold;"> @TempData["Message"]</span>!!! Welcome to the the Blood Donors Hub</p>
+                    <p>Hello <span style="color: red; font-weight: bold;">@TempData["Message"]</span>!!! Welcome to the the Blood Donors Hub</p>
                 </div>
             }
+            <br />
 
-            <div id="footer">
+            <ul id="Testmenu">
+                <li><a href="#">My Requests</a></li>
+
+                <li><a href="#">My Donations</a></li>
+                <li><a href="#">Update Status</a></li>
+            </ul>
+
+            <div id="footer" style="margin-bottom: 5%">
                 <p>&#169 Copyright 2014. All Rights Reserved.</p>
             </div>
+
+            @* Script for Admin menu bar*@
+
+
+
+
         </form>
     </body>
 }
