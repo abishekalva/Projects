@@ -47,8 +47,10 @@ namespace BloodDonorsHubScratch.Controllers
 
                 if (isValidLogin)
                 {
-                    string[] name=users.Email.Split('@');
-                    TempData["Message"] = name[0].ToUpper().ToString();
+                    //string[] name=users.Email.Split('@');
+                    //TempData["Message"] = name[0].ToUpper().ToString();
+                     string EmployeeName=Users.getNameByEmail(users.Email);
+                     TempData["Message"] = EmployeeName;    
                     return RedirectToAction("UserLogin", "Account");
                 }
             }
