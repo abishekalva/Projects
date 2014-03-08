@@ -127,7 +127,10 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Content Include="Contents\jquery-1.9.0.min.js" />
+    <Content Include="Contents\jquery.index.js" />
     <Content Include="Contents\Layout.css" />
+    <Content Include="Contents\style.css" />
     <Content Include="Global.asax" />
     <Content Include="Images\bar_background.png" />
     <Content Include="Images\BGimage.jpg" />
