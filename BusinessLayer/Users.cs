@@ -9,11 +9,10 @@ using System.Data.SqlClient;
 using System.Net.Mail;
 using System.Net;
 using System.Collections;
-using DataAccessModels;
 
 namespace BusinessLayer
 {
-    public class UserActions
+    public class Users
     {
         public string EmployeeId { get; set; }
         public string EmployeeName { get; set; }
@@ -31,11 +30,11 @@ namespace BusinessLayer
             try
             {
                 string toEmailId = users.Email;
-                bool ifEmailExists = DataAcessLayer.DataAcess.CheckIfEmailExists(toEmailId);
+                bool ifEmailExists = DataAccessLayer.DataAccess.CheckIfEmailExists(toEmailId);
                 if (ifEmailExists)
                 {
                     string commandText = "Insert into Users values('" + users.EmployeeId + "','" + users.EmployeeName + "','" + users.Password + "','" + users.City + "','" + users.BloodGroup + "','" + users.Email + "','" + users.PhoneNumber + "');";
-                    isSucessful = DataAcessLayer.DataAcess.ExecuteNonQuery(commandText);
+                    isSucessful = DataAccessLayer.DataAccess.ExecuteNonQuery(commandText);
                     
                     //Email subject
                     string subject = "Registration successful";
@@ -45,12 +44,12 @@ namespace BusinessLayer
                     string url = @"<a href = 'http://localhost:47760/'>Click here to login now </a>";
                     emailBody.AppendFormat("<h1>Congratulations you have been registered successfully.</h1>");
                     emailBody.AppendFormat("Dear {0},", users.EmployeeName);
-                    emailBody.AppendFormat("<br/><br/>");
+                    emailBody.AppendFormat("<br/>");
                     emailBody.AppendFormat("<p>Below are your login credentials:-</p>");
                     emailBody.AppendFormat("<br/>");
                     emailBody.AppendFormat("<p>User name: {0}", toEmailId);
                     emailBody.AppendFormat("<p>Password: {0}", users.Password);
-                    emailBody.AppendFormat("<br/><br/>");
+                    emailBody.AppendFormat("<br/>");
                     emailBody.Append(url);
 
                     SendEmail(toEmailId, emailBody.ToString(),subject);
@@ -88,10 +87,18 @@ namespace BusinessLayer
         {
            
             bool validateUserExists = false;
-            validateUserExists = DataAcessLayer.DataAcess.CheckIfUserExists(useremailid, userpassword);
+            validateUserExists = DataAccessLayer.DataAccess.CheckIfUserExists(useremailid, userpassword);
             return validateUserExists;
         }
-
+        
+        //Gets Name of Employee based on Email ID, User in Welcome screen
+        public static string getNameByEmail(string email)
+        {
+            string commandforEmployeeName = "Select * from Users where Email='" + email + "';";
+            DataTable user = DataAccessLayer.DataAccess.ExecuteQuery(commandforEmployeeName);
+            string EmployeeName = user.Rows[0]["EmployeeName"].ToString();
+            return EmployeeName;
+        }
 
         //Post a request to the users based on the criteria
         //<return> Returns void</return>
@@ -101,32 +108,32 @@ namespace BusinessLayer
             string subject = BloodGroupRequested+" Blood needed Urgently..!!!";
 
             string commandforEmployee = "Select * from Users where EmployeeID='" + EmployeeID + "';";
-            DataTable user = DataAcessLayer.DataAcess.ExecuteQuery(commandforEmployee);
-            string ename=user.Rows[0]["EmployeeName"].ToString();
-            string email = user.Rows[0]["Email"].ToString();
+            DataTable user = DataAccessLayer.DataAccess.ExecuteQuery(commandforEmployee);
+            string requester_Name=user.Rows[0]["EmployeeName"].ToString();
+            string requester_Email = user.Rows[0]["Email"].ToString();
+            string requester_PhoneNumber = user.Rows[0]["PhoneNumber"].ToString();
 
 
-            ////Email Body
-            //StringBuilder emailBody = new StringBuilder();
-            //emailBody.AppendFormat("<h1>Congratulations you have been registered successfully.</h1>");
-            ////emailBody.AppendFormat("Dear {0},", employeeName[0]);
-            //emailBody.AppendFormat("<br/><br/>");
-            //emailBody.AppendFormat("<p>Below are your login credentials:-</p>");
-            //emailBody.AppendFormat("<br/>");
-            //emailBody.AppendFormat("<p>User name: {0}", user.Email);
-            //emailBody.AppendFormat("<p>Password: {0}", user.Password);
-            //emailBody.AppendFormat("<br/><br/>");
+            //Email Body
+            StringBuilder emailBody = new StringBuilder();
+            emailBody.AppendFormat("<h2>A patient needs {0} blood immediately.If you're willing to donate please contact below:</h2>",BloodGroupRequested);
+            emailBody.AppendFormat("Contact Details:-<br/>");
+            emailBody.AppendFormat("Name: {0} <br/>", requester_Name);
+            emailBody.AppendFormat("Email: {0} <br/>", requester_Email);
+            emailBody.AppendFormat("Mobile: {0} <br/>", requester_PhoneNumber);
+            emailBody.AppendFormat("<br/><br/>");
+            emailBody.AppendFormat("Thank you,<br/> Blood Donors Hub");
 
-            ////Gets the email ids of users with specified criteria
-            //string commandtext = "Select Email from Users where BloodGroup='"+BloodGroupRequested+"' And City= '"+City+"';";
-            //List<string> emailids = new List<string>();
-            //emailids = DataAcessLayer.DataAcess.GetEmailIdAsStrings(commandtext);          
+            //Gets the email ids of users with specified criteria
+            string commandtext = "Select Email from Users where BloodGroup='" + BloodGroupRequested + "' And City= '" + City + "';";
+            List<string> emailids = new List<string>();
+            emailids = DataAccessLayer.DataAccess.GetEmailIdAsStrings(commandtext);
 
-            ////Blast the blood request email to all users with required criteria
-            //foreach(var emailid in emailids)
-            //{
-            //    SendEmail(subject, emailBody.ToString(), emailid);
-            //}
+            //Blast the blood request email to all users with required criteria
+            foreach (var emailid in emailids)
+            {
+                SendEmail(emailid,emailBody.ToString(),subject ); 
+            }
             
         }
     }

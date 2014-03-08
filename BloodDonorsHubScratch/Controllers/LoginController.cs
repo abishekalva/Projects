@@ -43,7 +43,7 @@ namespace BloodDonorsHubScratch.Controllers
             else
             {
                 //If User Credentials, validate & redirect to users page
-                bool isValidLogin = UserActions.ValidateLoginUser(users.Email, users.Password);
+                bool isValidLogin = Users.ValidateLoginUser(users.Email, users.Password);
 
                 if (isValidLogin)
                 {

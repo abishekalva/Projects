@@ -1,5 +1,4 @@
-﻿using DataAccessModels;
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Data;
@@ -9,9 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 
 
-namespace DataAcessLayer
+namespace DataAccessLayer
 {
-    public class DataAcess
+    public class DataAccess
     {
         private static SqlConnection connection;
         private static SqlCommand command;
@@ -38,6 +37,9 @@ namespace DataAcessLayer
             }
             return command;
         }
+
+        //Creates SqlConnection for the Connection String
+        //<return> SqlConnection object </return>
         public static SqlConnection GetSqlConnection()
         {
             connection = Connection();
@@ -76,22 +78,16 @@ namespace DataAcessLayer
             }
         }
 
+        //Executes the command for the command text provided.
+        //Handle SELECT Query which returns DataTable consisting more than one DataRows
+        //<return> Returns Data Table </return>
         public static DataTable ExecuteQuery(string commandText)
         {
-            
-
                 SqlDataAdapter adapter = new SqlDataAdapter(commandText, GetSqlConnection());
                 DataTable table = new DataTable();
                 adapter.Fill(table);
                 return table;
-
-
-
-
-           
-
         }
-
 
 
         //This method checks if the Email already exists in the DB.
@@ -141,7 +137,7 @@ namespace DataAcessLayer
             }
         }
 
-        //Method to get all the email ids from user table
+        //Method to get all the email ids from user table based on Query
         //<return> List of emails </return>
         public static List<string> GetEmailIdAsStrings(string commandText)
         {
@@ -160,45 +156,5 @@ namespace DataAcessLayer
                 return emailIds;
             }
         }
-
-        //Method to get the User from UserTable based on Employee Id
-        //<return>User </return>
-        //public static Users Get_the_Employee(string commandText)
-        //{
-
-        //    using (connection = GetSqlConnection())
-        //    {
-        //        command = Command();
-        //        connection.Open();
-        //        command.Connection = connection;
-        //        command.CommandText = commandText;
-        //        Users user = new Users();
-        //        using (DataRow row = command.ExecuteReader())
-        //        {
-        //            while (reader.Read())
-        //            {
-        //                user.EmployeeName = reader["EmployeeName"].ToString();
-        //                user.EmployeeId = reader["EmployeeID"].ToString();
-        //                user.Email = reader["Email"].ToString();
-        //                user.BloodGroup = reader["BloodGroup"].ToString();
-        //                user.Password = reader["Password"].ToString();
-        //                user.City = reader["City"].ToString();
-        //                user.PhoneNumber = reader["PhoneNumber"].ToString();
-
-
-
-
-                        
-
-        //            }
-
-        //        }
-
-
-            //    return user;
-            //}
-
-
-       // }
     }
 }

@@ -40,17 +40,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="UsersActions.cs" />
+    <Compile Include="Users.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DataAccessModels\DataAccessModels.csproj">
-      <Project>{133daa9e-0353-4e66-a7bc-1b4ff528da04}</Project>
-      <Name>DataAccessModels</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\DataAcessLayer\DataAcessLayer.csproj">
+    <ProjectReference Include="..\DataAccessLayer\DataAccessLayer.csproj">
       <Project>{34050f06-3c19-4c93-babb-27a14beb43e9}</Project>
-      <Name>DataAcessLayer</Name>
+      <Name>DataAccessLayer</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
